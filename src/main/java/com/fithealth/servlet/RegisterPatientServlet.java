@@ -53,7 +53,9 @@ public class RegisterPatientServlet extends HttpServlet {
 				req.setAttribute("fullName", fullName);
 				req.getRequestDispatcher("/patient-details.jsp").forward(req, resp);
 			}
+			flag = true;
 		} catch (SQLException | ClassNotFoundException e) {
+			flag = false;
 			throw new ServletException(e);
 		} finally {
 			try {
